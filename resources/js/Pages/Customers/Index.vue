@@ -16,6 +16,10 @@ function edit(id){
 
 <template>
     <div class="card col-5 offset-3">
+        <div v-if="$page.props.flash.message" class="alert alert-success">
+            {{$page.props.flash.message}}
+        </div>
+
         <table class="table table-bordered table-hover table-sm">
             <thead>
             <tr>

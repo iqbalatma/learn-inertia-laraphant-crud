@@ -50,7 +50,7 @@ class CustomerController extends Controller
         Customer::query()->create($validated);
 
 
-        return Redirect::route("customers.index");
+        return Redirect::route("customers.index")->with("message", "Customer created successfully");
     }
 
     /**
@@ -60,7 +60,7 @@ class CustomerController extends Controller
     public function destroy(Customer $customer): RedirectResponse
     {
         $customer->delete();
-        return Redirect::route("customers.index");
+        return Redirect::route("customers.index")->with("message", "Customer delete successfully");
     }
 
     /**
@@ -88,6 +88,6 @@ class CustomerController extends Controller
         ]);
 
         $customer->fill($validated)->save();
-        return Redirect::route("customers.index");
+        return Redirect::route("customers.index")->with("message", "Customer update successfully");
     }
 }
